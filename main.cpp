@@ -18,7 +18,7 @@ Serial dev(p9, p10);
 
 void dev_recv(){
     while(dev.readable()){
-        pc.putc(dev.getc())    
+        pc.putc(dev.getc());    
     }    
 }
 
@@ -30,12 +30,12 @@ void pc_recv(){
 
 int main() {
     pc.baud(9600);
-    device1.baud(115200);
+    dev.baud(115200);
     pc.attach(&pc_recv);
-    dev.atach(&dev);
+    dev.attach(&pc_recv);
     pc.printf("Hello!! \r\n");
-    
-    while(1) {
+
+     while(1) {
         myled = 1;
         wait(1);
         myled = 0;
